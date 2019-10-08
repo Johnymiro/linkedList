@@ -1,13 +1,22 @@
 package org.academiadecodigo.bootcamp.containers;
 
-public class LinkedList {
+import java.util.Iterator;
 
-    private Node head;
+public class LinkedList<T>{
+
+    private Node<T> head;
     private int length = 0;
 
     public LinkedList() {
         this.head = new Node(null);
     }
+
+
+
+
+
+
+
 
     public int size() {
         return length;
@@ -18,7 +27,7 @@ public class LinkedList {
      *
      * @param data the element to add
      */
-    public void add(Object data) {
+    public void add(T data) {
 
         Node node = new Node(data);
         Node iterator = head;
@@ -36,9 +45,9 @@ public class LinkedList {
      * @param index the index of the element
      * @return the element
      */
-    public Object get(int index) {
+    public T get(int index) {
 
-        Node iterator = head.getNext();
+        Node<T> iterator = head.getNext();
 
         int i = 0;
 
@@ -108,25 +117,29 @@ public class LinkedList {
         return false;
     }
 
-    private class Node {
+    public Node<T> getHead(){
+        return this.head;
+    }
 
-        private Object data;
+    private class Node<T> {
+
+        private T data;
         private Node next;
 
-        public Node(Object data) {
+        public Node(T data) {
             this.data = data;
             next = null;
         }
 
-        public Object getData() {
+        public T getData() {
             return data;
         }
 
-        public void setData(Object data) {
+        public void setData(T data) {
             this.data = data;
         }
 
-        public Node getNext() {
+        public Node<T> getNext() {
             return next;
         }
 
